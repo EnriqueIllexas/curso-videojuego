@@ -1,0 +1,52 @@
+:root{
+    --green: #76d594;
+}
+body{
+    display: grid;
+    place-items: center;
+}
+.canva{
+    border: 1px solid var(--green);
+    width: 480px;
+    height: 380px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    gap: 30px;
+}
+.btns button{
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+    border-style: none;
+    padding: 30px;
+    transition: 1s ease;
+}
+.btns button:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
+    box-shadow:  20px 20px 60px #76d594,
+                -20px -20px 60px #76d594;
+    animation-delay: 1s;
+    
+}
+.game-container{
+    margin-top: 30px;
+    width: 485px;
+    height: 600px;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1.2px solid var(--green);
+}
+.messages{
+    padding: 10px;
+}
+.messages p{
+    color: var(--green);
+}
