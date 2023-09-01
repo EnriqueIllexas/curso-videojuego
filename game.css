@@ -2,15 +2,30 @@
     --green: #76d594;
 }
 body{
+    background-color: var(--green);
+    display: grid;
+    place-items: center;
+}
+.inactive{
+    display: none;
+}
+.game-container{
+    box-shadow: 16px 1px 52px #3b6749;
+    background-color: white;
+    margin-top: 30px;
+    width: 485px;
+    height: 600px;
+    border-radius: 15px;
+    padding: 20px;
     display: grid;
     place-items: center;
 }
 .canva{
     border: 1px solid var(--green);
-    width: 480px;
-    height: 380px;
-    margin-bottom: 50px;
+        margin-bottom: 40px;
+    background-color: white;
     border-radius: 20px;
+    margin-left: 15px;
 }
 .btns{
     display: flex;
@@ -36,14 +51,7 @@ body{
     animation-delay: 1s;
     
 }
-.game-container{
-    margin-top: 30px;
-    width: 485px;
-    height: 600px;
-    border-radius: 15px;
-    padding: 20px;
-    border: 1.2px solid var(--green);
-}
+
 .messages{
     padding: 10px;
 }
