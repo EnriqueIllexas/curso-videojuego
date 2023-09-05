@@ -8,8 +8,6 @@ const emojis = {
     'O': '🚪',
     'X': "⬛",
     'Z': "🔲",
-    "M": "🟨",
-    "C": "🏝️",
     "A": "⬜",
     "B":"💣",
     "J": "🚧",
@@ -48,26 +46,26 @@ const emojis = {
     ZZZZZZZZZV
     `);
   maps.push(`
-    I-----JXMV
-    CXXXX-XMMV
-    CX----XXMV
-    CX-XXXXMMV
-    CX-----MMV
-    CX-XXX-XMV
-    CX-----XMV
-    CXXJX-XXMV
-    CX-----OMV
-    CZZZZZZZZV
+    V--------V
+    V-ZXAXAZ-V
+    V-X----X-V
+    V-A-XZ-A-V
+    V-X-AI-X-V
+    V-A-XAXZ-V
+    V-X------V
+    V-ZXJXAXZV
+    V-------OV
+    VZZZZZZZZV
   `);
   maps.push(`
     ZI----ZZZZ
-    ZXXXX---JZ
+    ZXJXX---JZ
     ZX----X--Z
     ZX-XXXXX-Z
     ZX-------Z
     ZX-XXX-XXZ
     ZX-----X-Z
-    ZXXJV-VX-Z
+    ZXXXV-VX-Z
     ZX------OZ
     ZZZZZZZZZZ
   `);

@@ -17,6 +17,10 @@ const gitfPosition = {
   x: undefined,
   y: undefined,
 }
+let enemyPositions = [
+
+]
+  
 
 window.addEventListener('load', setCanvasSize);
 window.addEventListener('resize', setCanvasSize);
@@ -42,17 +46,18 @@ function startGame() {
   game.font = elementsSize + 'px Verdana';
   game.textAlign = 'end';
 
-  const map = maps[1];
+  const map = maps[3];
   const mapRows = map.trim().split('\n');
   const mapRowCols = mapRows.map(row => row.trim().split(''));
   console.log({map, mapRows, mapRowCols});
   
+  enemyPositions = [];
   game.clearRect(0,0,canvasSize, canvasSize);
   mapRowCols.forEach((row, rowI) => {
     row.forEach((col, colI) => {
       const emoji = emojis[col];
-      const posX = elementsSize * (colI + 1) +5;
-      const posY = elementsSize * (rowI + 1) +5;
+      const posX = elementsSize * (colI + 1);
+      const posY = elementsSize * (rowI + 1);
 
       if (col == 'O') {
         if (!playerPosition.x && !playerPosition.y) {
@@ -60,6 +65,29 @@ function startGame() {
           playerPosition.y = posY;
           console.log({playerPosition});
         }
+      } else if(col == 'I'){
+        gitfPosition.x = posX;
+        gitfPosition.y = posY;
+      }else if(col == 'X'){
+        enemyPositions.push({
+          x: posX,
+          y: posY,
+        })
+      }else if(col == 'Z'){
+        enemyPositions.push({
+          x: posX,
+          y: posY,
+        })
+      }else if(col == 'A'){
+        enemyPositions.push({
+          x: posX,
+          y: posY,
+        })
+      }else if(col == 'V'){
+        enemyPositions.push({
+          x: posX,
+          y: posY,
+        })
       }
       
       game.fillText(emoji, posX, posY);
@@ -70,6 +98,21 @@ function startGame() {
 }
 
 function movePlayer() {
+  const  gitfCollisionX = playerPosition.x.toFixed(3) == gitfPosition.x.toFixed(3);
+  const  gitfCollisionY = playerPosition.y.toFixed(3) == gitfPosition.y.toFixed(3);
+  const gitCollision = gitfCollisionX && gitfCollisionY;
+  if(gitCollision){
+    alert("SUBISTE DE NIVEL! YEE")
+  }
+  const enemyCollision = enemyPositions.find(enemy => {
+    const enemyCollisionX= enemy.x == playerPosition.x;
+    const enemyCollisionY= enemy.y == playerPosition.y;
+    return enemyCollisionX && enemyCollisionY;
+   });
+
+  if(enemyCollision){
+    alert("perdiste")
+  }
   game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
 }
 
