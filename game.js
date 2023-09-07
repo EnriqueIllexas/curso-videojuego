@@ -5,9 +5,12 @@ const btnUp = document.querySelector('#up');
 const btnLeft = document.querySelector('#left');
 const btnRight = document.querySelector('#right');
 const btnDown = document.querySelector('#down');
+const spanLives = document.querySelector("#lives")
 
 let canvasSize;
 let elementsSize;
+let level = 0;
+let lives = 4;
 
 const playerPosition = {
   x: undefined,
@@ -46,10 +49,17 @@ function startGame() {
   game.font = elementsSize + 'px Verdana';
   game.textAlign = 'end';
 
-  const map = maps[3];
+  const map = maps[level];
+
+  if(!map){
+    gameWin();
+    return;
+  }
   const mapRows = map.trim().split('\n');
   const mapRowCols = mapRows.map(row => row.trim().split(''));
   console.log({map, mapRows, mapRowCols});
+
+  showLives();
   
   enemyPositions = [];
   game.clearRect(0,0,canvasSize, canvasSize);
@@ -102,8 +112,9 @@ function movePlayer() {
   const  gitfCollisionY = playerPosition.y.toFixed(3) == gitfPosition.y.toFixed(3);
   const gitCollision = gitfCollisionX && gitfCollisionY;
   if(gitCollision){
-    alert("SUBISTE DE NIVEL! YEE")
+    levelWin();
   }
+
   const enemyCollision = enemyPositions.find(enemy => {
     const enemyCollisionX= enemy.x == playerPosition.x;
     const enemyCollisionY= enemy.y == playerPosition.y;
@@ -111,9 +122,35 @@ function movePlayer() {
    });
 
   if(enemyCollision){
-    alert("perdiste")
+    levelFail();
   }
   game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
+}
+function levelWin(){
+  level++;
+  startGame();
+}
+function gameWin(){
+  alert("terminaste el juego")
+}
+function levelFail(){
+  console.log("chocaste contra un enemigo")
+  lives--;
+
+  if(lives <= 0){
+    level = 0;
+    lives = 4;
+  }
+
+  playerPosition.x = undefined;
+  playerPosition.y = undefined;
+    startGame();
+}
+function showLives(){
+  const heartArray = Array(lives).fill(emojis["HEART"]);
+
+  spanLives.innerHTML = "";
+  heartArray.forEach(heart => spanLives.append(heart));
 }
 
 window.addEventListener('keydown', moveByKeys);

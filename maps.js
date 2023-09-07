@@ -45,6 +45,18 @@ const emojis = {
     XX--J--IXV
     ZZZZZZZZZV
     `);
+    maps.push(`
+    ZI----ZZZZ
+    ZXJXX---JZ
+    ZX----X--Z
+    ZX-XXXXX-Z
+    ZX-------Z
+    ZX-XXX-XXZ
+    ZX-----X-Z
+    ZXXXV-VX-Z
+    ZX------OZ
+    ZZZZZZZZZZ
+  `);
   maps.push(`
     V--------V
     V-ZXAXAZ-V
@@ -56,16 +68,4 @@ const emojis = {
     V-ZXJXAXZV
     V-------OV
     VZZZZZZZZV
-  `);
-  maps.push(`
-    ZI----ZZZZ
-    ZXJXX---JZ
-    ZX----X--Z
-    ZX-XXXXX-Z
-    ZX-------Z
-    ZX-XXX-XXZ
-    ZX-----X-Z
-    ZXXXV-VX-Z
-    ZX------OZ
-    ZZZZZZZZZZ
   `);
