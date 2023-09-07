@@ -9,7 +9,7 @@ const spanLives = document.querySelector("#lives")
 
 let canvasSize;
 let elementsSize;
-let level = 0;
+let level = 1;
 let lives = 4;
 
 const playerPosition = {
@@ -32,7 +32,7 @@ function setCanvasSize() {
   if (window.innerHeight > window.innerWidth) {
     canvasSize = window.innerWidth * 0.44;
   } else {
-    canvasSize = window.innerHeight * 0.6;
+    canvasSize = window.innerHeight * 0.62;
   }
   
   canvas.setAttribute('width', canvasSize);
@@ -66,8 +66,8 @@ function startGame() {
   mapRowCols.forEach((row, rowI) => {
     row.forEach((col, colI) => {
       const emoji = emojis[col];
-      const posX = elementsSize * (colI + 1);
-      const posY = elementsSize * (rowI + 1);
+      const posX = elementsSize * (colI + 1) + 10; 
+      const posY = elementsSize * (rowI + 1) - 5;
 
       if (col == 'O') {
         if (!playerPosition.x && !playerPosition.y) {
