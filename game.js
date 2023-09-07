@@ -9,8 +9,8 @@ const spanLives = document.querySelector("#lives")
 
 let canvasSize;
 let elementsSize;
-let level = 1;
-let lives = 4;
+let level = 0;
+let lives = 3;
 
 const playerPosition = {
   x: undefined,

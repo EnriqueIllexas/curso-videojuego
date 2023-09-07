@@ -47,10 +47,10 @@ const emojis = {
     `);
     maps.push(`
     ZZZZZZZZZZ
-    ZXJXX---IZ
-    ZX----X--Z
-    ZX-XXXXX-Z
-    ZX-------Z
+    ZX--J---IZ
+    ZX-X--X--Z
+    ZX-X-XXX-Z
+    ZX---X---Z
     ZX-XXX-XXZ
     ZX-----X-Z
     ZXXXV-VX-Z
