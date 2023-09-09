@@ -6,11 +6,16 @@ const btnLeft = document.querySelector('#left');
 const btnRight = document.querySelector('#right');
 const btnDown = document.querySelector('#down');
 const spanLives = document.querySelector("#lives")
+const spanTime = document.querySelector("#time")
 
 let canvasSize;
 let elementsSize;
 let level = 0;
 let lives = 3;
+
+let timeStart;
+let timePLayer;
+let timeInterval;
 
 const playerPosition = {
   x: undefined,
@@ -54,6 +59,10 @@ function startGame() {
   if(!map){
     gameWin();
     return;
+  }
+  if(!timeStart){
+    timeStart = Date.now();
+    timeInterval = setInterval(showTime,100);
   }
   const mapRows = map.trim().split('\n');
   const mapRowCols = mapRows.map(row => row.trim().split(''));
@@ -126,12 +135,14 @@ function movePlayer() {
   }
   game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
 }
+
+function gameWin(){
+  alert("terminaste el juego")
+  clearInterval(timeInterval);
+}
 function levelWin(){
   level++;
   startGame();
-}
-function gameWin(){
-  alert("terminaste el juego")
 }
 function levelFail(){
   console.log("chocaste contra un enemigo")
@@ -140,17 +151,21 @@ function levelFail(){
   if(lives <= 0){
     level = 0;
     lives = 4;
+    timeStart = undefined;
   }
 
   playerPosition.x = undefined;
   playerPosition.y = undefined;
-    startGame();
+  startGame();
 }
 function showLives(){
   const heartArray = Array(lives).fill(emojis["HEART"]);
 
   spanLives.innerHTML = "";
   heartArray.forEach(heart => spanLives.append(heart));
+}
+function showTime(){
+    spanTime.innerHTML = Date.now() - timeStart;
 }
 
 window.addEventListener('keydown', moveByKeys);
@@ -225,3 +240,12 @@ function moveDown() {
     game.fillStyle = 'purple';
     game.textAlign = 'left';
     game.fillText("Platzi",25,25); */
+//setInterval = reitera una funcion hasta que cumpla el 2do parametro ejemplo : setInterval(() => console.log("oli"), 1000)
+//setIimeot: el 2do parametro hace que la funcion aparesca en un tiempo determinado (() => console.log("oli"), 1000) 
+//clearInterval(intervalito) = detiene la funcion reiteradora de setInterval
+//Date.now = imprime la hora en que estamos
+
+/*
+const timeStart = Date.now()
+ */
+// te quedaste en el minuto 15:22 ok? bro 

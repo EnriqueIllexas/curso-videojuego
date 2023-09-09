@@ -7,25 +7,35 @@
     <link rel="stylesheet" href="game.css">
 </head>
 <body>
-    <div class="game-container">
-        <canvas id="game" class="canva">
-            
-        </canvas>
-
-        <div class="btns">
-            <button id="up"><img class="icon" src="./arrow-up.svg" alt=""></button>
-            <button id="left"><img class="icon" src="./arrow-left.svg" alt=""></button>
-            <button id="right"><img class="icon" src="./arrow-right.svg" alt=""></button>
-            <button id="down"><img class="icon" src="./arrow-down.svg" alt=""></button>
+    <section class="game-class">
+        <div class="game-container">
+            <canvas id="game" class="canva">
+                
+            </canvas>
+    
+            <div class="btns">
+                <button id="up"><img class="icon" src="./arrow-up.svg" alt=""></button>
+                <button id="left"><img class="icon" src="./arrow-left.svg" alt=""></button>
+                <button id="right"><img class="icon" src="./arrow-right.svg" alt=""></button>
+                <button id="down"><img class="icon" src="./arrow-down.svg" alt=""></button>
+            </div>
+    
+        
         </div>
-
-        <div class="messages">
-            <!-- TODO -->
-            <p>Vidas: <span id="lives"></span></p>
+        <div class="mesages-container">
+            <div class="messages">
+                <!-- TODO -->
+                <p>Vidas: <span id="lives"></span></p>
+                <p>Tiempo: <span id="time"></span></p>
+            </div>  
+            <div id="app">
+                <div id="comments-container"></div>
+              </div>
         </div>
-    </div>
+    </section>
 
     <script src="./maps.js"></script>
     <script src="./game.js"></script>
+    <script src="./chat.js"> </script>
 </body>
 </html>
