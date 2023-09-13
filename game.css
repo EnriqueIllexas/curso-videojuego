@@ -121,7 +121,6 @@ body{
   }
 .comment-win{
     background-color: var(--green);
-    width: 240px;
     height: 240px;
     border-radius: 15px;
     padding: 20px;
@@ -212,7 +211,6 @@ body{
 .comment-lose{
     
     background-color: var(--green);
-    width: 240px;
     height: 240px;
     border-radius: 15px;
     padding: 20px;
@@ -242,7 +240,6 @@ body{
         border-radius: 15px;
         padding: 20px;
         position: absolute;
-        left: 16.5%;
         border: 5px solid white;   
 }
 .commet-juego-terminado p{
@@ -359,5 +356,17 @@ body{
         background-color: transparent;
         padding: 16px;
         border: 1px solid var(--green);
+    }
+    .commet-juego-terminado{
+        top: 0px;
+        width: 100vw;
+        height: 100vh;
+    }
+    .commet-juego-terminado img{
+        margin-top: 40px;
+        margin-bottom: 100px;
+    }
+    .commet-juego-terminado button{
+        margin-left: 12%;
     }
 }

@@ -13,6 +13,11 @@
 <body>
     <section class="game-class">
         <div class="game-container">
+            <div class="commet-juego-terminado inactive animate__animated animate__fadeInDown" id="juegoTerminado">
+                <p>Terminaste el Juego!</p>
+                <img src="./img/campeon.png" alt="">
+                <button id="gameAgain">Jugar de nuevo</button>
+            </div>
             <canvas id="game" class="canva">
                 
             </canvas>
@@ -34,11 +39,6 @@
             </div>  
             <div id="app">
                 <div id="comments-container">
-                    <div class="commet-juego-terminado inactive animate__animated animate__fadeInDown" id="juegoTerminado">
-                        <p>Terminaste el Juego!</p>
-                        <img src="./img/campeon.png" alt="">
-                        <button id="gameAgain">Jugar de nuevo</button>
-                    </div>
                     <div class="comment-win inactive" id="win">
                         <p>Nuevo RECORD!</p>
                         <img src="img/win.png" alt="trofeo" class="imagen">

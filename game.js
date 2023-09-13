@@ -147,6 +147,7 @@ function movePlayer() {
   game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
 }
 function gameWin(){;
+  gameContainer.classList.add("inactive")
   clearInterval(timeInterval);
 
   const recordTime = localStorage.getItem('record_time');
@@ -165,7 +166,6 @@ function gameWin(){;
     localStorage.setItem('record_time', playerTime);
   }
   console.log({recordTime});
-  gameContainer.classList.add("inactive")
   alertaJuegoTerminado.classList.remove("inactive")
   
 }
