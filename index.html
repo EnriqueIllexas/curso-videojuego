@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platzi Friv</title>
     <link rel="stylesheet" href="game.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
     <section class="game-class">
@@ -19,19 +23,34 @@
                 <button id="right"><img class="icon" src="./arrow-right.svg" alt=""></button>
                 <button id="down"><img class="icon" src="./arrow-down.svg" alt=""></button>
             </div>
-    
-        
         </div>
         <div class="mesages-container">
             <div class="messages">
                 <!-- TODO -->
                 <p>Vidas: <span id="lives"></span></p>
                 <p>Tiempo: <span id="time"></span></p>
+                <p>record: <span id="record"></span></p>
+                <p id="result"></p>
             </div>  
             <div id="app">
-                <div id="comments-container"></div>
+                <div id="comments-container">
+                    <div class="commet-juego-terminado inactive animate__animated animate__fadeInDown" id="juegoTerminado">
+                        <p>Terminaste el Juego!</p>
+                        <img src="./img/campeon.png" alt="">
+                        <button id="gameAgain">Jugar de nuevo</button>
+                    </div>
+                    <div class="comment-win inactive" id="win">
+                        <p>Nuevo RECORD!</p>
+                        <img src="img/win.png" alt="trofeo" class="imagen">
+                    </div>
+                    <div class="comment-lose inactive" id="lose">
+                        <p>Losiento, no superaste tu record</p>
+                        <img src="img/lose.png" alt="derrota" class="imagen">
+                    </div>
+                </div>
               </div>
         </div>
+
     </section>
 
     <script src="./maps.js"></script>

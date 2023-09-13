@@ -6,12 +6,21 @@ const btnLeft = document.querySelector('#left');
 const btnRight = document.querySelector('#right');
 const btnDown = document.querySelector('#down');
 const spanLives = document.querySelector("#lives")
-const spanTime = document.querySelector("#time")
+const spanTime = document.querySelector("#time");
+const spanRecord = document.querySelector("#record");
+const pResult = document.querySelector("#result")
+const commetWin = document.querySelector("#win")
+const commetLose = document.querySelector("#lose")
+const gameContainer = document.querySelector(".game-container")
+const juegoTerminado = document.querySelector("#juegoTerminado")
+
+//alerta juego terminado
+const alertaJuegoTerminado = document.querySelector("#juegoTerminado")
 
 let canvasSize;
 let elementsSize;
 let level = 0;
-let lives = 3;
+let lives = 5;
 
 let timeStart;
 let timePLayer;
@@ -63,6 +72,8 @@ function startGame() {
   if(!timeStart){
     timeStart = Date.now();
     timeInterval = setInterval(showTime,100);
+
+    showRecord();
   }
   const mapRows = map.trim().split('\n');
   const mapRowCols = mapRows.map(row => row.trim().split(''));
@@ -135,10 +146,28 @@ function movePlayer() {
   }
   game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
 }
-
-function gameWin(){
-  alert("terminaste el juego")
+function gameWin(){;
   clearInterval(timeInterval);
+
+  const recordTime = localStorage.getItem('record_time');
+  const playerTime = Date.now() - timeStart;
+
+  if(recordTime){
+    if(recordTime >= playerTime){
+      localStorage.setItem('record_time', playerTime);
+      commetWin.classList.remove("inactive")
+    }
+    else{
+      commetLose.classList.remove("inactive")
+    }
+  }
+  else{
+    localStorage.setItem('record_time', playerTime);
+  }
+  console.log({recordTime});
+  gameContainer.classList.add("inactive")
+  alertaJuegoTerminado.classList.remove("inactive")
+  
 }
 function levelWin(){
   level++;
@@ -166,6 +195,9 @@ function showLives(){
 }
 function showTime(){
     spanTime.innerHTML = Date.now() - timeStart;
+}
+function showRecord(){
+    spanRecord.innerHTML = localStorage.getItem('record_time')
 }
 
 window.addEventListener('keydown', moveByKeys);
@@ -248,4 +280,15 @@ function moveDown() {
 /*
 const timeStart = Date.now()
  */
-// te quedaste en el minuto 15:22 ok? bro 
+// localStorage =
+/*
+sirve solamente si se esta ejecutando el código JS en un navegador web o que se ejecute junto un HTML.
+  Esto es el almacenamiento local en el navegador, es decir, se le pide al navegador que guarde alguna información por ti.
+
+  - localStorage.getItem es para leer alguna información que tengamos dentro de localStorage. 
+    Ejemplo: localStorage.getItem("Nombre variable").
+  - localStorage.setItem es para guardar una variable por primera vez.
+    Ejemplo: localStorage.setItem("Variable a guardar", "Valor de la variable").
+  - localStorage.removeItem borra las variables guardadas en el   navegador. 
+    Ejemplo: localStorage.removeItem("Nombre variable").
+ */
