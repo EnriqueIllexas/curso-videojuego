@@ -335,8 +335,17 @@ body{
     }
   }
   
-  
-@media (max-width: 600px) {
+@media (max-width:700px){
+        .game-class{
+                display: flex;
+                flex-direction: column;
+        }
+        .mesages-container{
+                width: 340px;
+                height: 200px;
+            }
+}
+@media (max-width: 400px) {
     .game-class{
         display: flex;
         flex-direction: column;
@@ -358,15 +367,32 @@ body{
         border: 1px solid var(--green);
     }
     .commet-juego-terminado{
-        top: 0px;
-        width: 100vw;
-        height: 100vh;
-    }
-    .commet-juego-terminado img{
-        margin-top: 40px;
-        margin-bottom: 100px;
+        top: 30px;
+        width: 99vw;
+        height: 390px;
     }
     .commet-juego-terminado button{
-        margin-left: 12%;
+        margin-left: 25%;
+        padding: 10px 15px;
+    }
+    .commet-juego-terminado img{
+        margin: 0;
+        width: 200px;
+        height: 200px;
+        margin-left: 20%;
+    }
+    .comment-lose{
+        margin-top: 0px;
+        position: absolute;
+        width: 320px;
+        height: 200px;
+        margin-bottom: 100px;
+    }
+    .comment-win{
+        margin-top: 0px;
+        position: absolute;
+        width: 320px;
+        height: 200px;
+        margin-bottom: 100px;
     }
 }

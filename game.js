@@ -13,6 +13,7 @@ const commetWin = document.querySelector("#win")
 const commetLose = document.querySelector("#lose")
 const gameContainer = document.querySelector(".game-container")
 const juegoTerminado = document.querySelector("#juegoTerminado")
+const gameReset = document.querySelector("#gameAgain");
 
 //alerta juego terminado
 const alertaJuegoTerminado = document.querySelector("#juegoTerminado")
@@ -42,21 +43,28 @@ let enemyPositions = [
 window.addEventListener('load', setCanvasSize);
 window.addEventListener('resize', setCanvasSize);
 
+function fixNumber(n){
+  return Number(n.toFixed(2))
+}
 function setCanvasSize() {
   if (window.innerHeight > window.innerWidth) {
-    canvasSize = window.innerWidth * 0.44;
+    canvasSize = window.innerWidth * 0.74;
   } else {
     canvasSize = window.innerHeight * 0.62;
   }
   
+  canvasSize = Number(canvasSize.toFixed(0));
+
   canvas.setAttribute('width', canvasSize);
   canvas.setAttribute('height', canvasSize);
   
   elementsSize = canvasSize / 10;
 
+  playerPosition.x = undefined;
+  playerPosition.y = undefined;
   startGame();
 }
-
+gameReset.addEventListener('click', reiniciarJuego);
 function startGame() {
   console.log({ canvasSize, elementsSize });
 
@@ -147,8 +155,8 @@ function movePlayer() {
   game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
 }
 function gameWin(){;
-  gameContainer.classList.add("inactive")
   clearInterval(timeInterval);
+  
 
   const recordTime = localStorage.getItem('record_time');
   const playerTime = Date.now() - timeStart;
@@ -168,6 +176,9 @@ function gameWin(){;
   console.log({recordTime});
   alertaJuegoTerminado.classList.remove("inactive")
   
+}
+function reiniciarJuego() {
+  location.reload();
 }
 function levelWin(){
   level++;
@@ -255,7 +266,6 @@ function moveDown() {
 }
 
 //PA EL DICCIONARIO
-
 //fillRect = crea un rectangulo. Se tienen que inicializar con 4 valores los cuales son : eje x, eje y, largo y ancho
 //clearRect = elimina un elemento del canvas
 //fillStyle = 
